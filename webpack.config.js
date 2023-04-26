@@ -8,6 +8,7 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: "main.js"
   }, 
+  mode: 'development',
   devServer: {
     host: 'localhost',
     port: 8080,
@@ -21,7 +22,7 @@ module.exports = {
   plugins: [
     new HtmlWebPackPlugin({
     template: "./src/index.html", 
-    filename: "./index.html"
+    filename: "index.html"
     }),
     new MiniCssExtractPlugin({
       filename: 'style.css'

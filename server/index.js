@@ -3,19 +3,42 @@ const path = require('path')
 
 const app = express();
 const port = 3000;
+app.use(express.json())
+// const bodyParser = require('body-parser');
 //file path into bundled files
-const DIST_DIR = path.join(__dirname, '../dist'); 
-const HTML_FILE = path.join(DIST_DIR, 'index.html'); 
+// const DIST_DIR = path.join(__dirname, '../dist'); 
+// const HTML_FILE = path.join(DIST_DIR, 'index.html'); 
 
-app.use(express.static(DIST_DIR));
+//routers
+const authRoutes = require('./route/auth');
 
-app.get('/api', (req,res) => {
-  res.json({me: 'Aaron'});
-})
+app.use(express.static(path.join(__dirname, '../dist')));
+//serves the html files to the client
 app.get('/', (req,res) => {
-  res.sendFile(HTML_FILE);
+  res.sendFile(__dirname, '../dist/index.html')
 })
 
+//redirect routers
+app.use('/api', authRoutes);
+
+
+//catchall unknown route
+app.get('*', (req, res) =>  {
+  res.status(404).json('<h1>catch-all route handler activated</h1>');
+});
+
+//global error handler
+app.use((err, req, res, next) => {
+  const defaultErr = {
+    log: 'Express error handler caught unknown middleware error',
+    status: 400,
+    message: { err: 'global error handler invoked' },
+  }
+  const errorObj = Object.assign(defaultErr, err);
+  return res.status(errorObj.status).json(errorObj.message);
+});
+
+//startserver
 app.listen(port, () => {
-  console.log('listening on the folliwng port:', port);
+  console.log('listening on the follwing port:', port);
 })

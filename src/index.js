@@ -1,13 +1,11 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './style.css';
-const Index = () => {
-    return <div className='text-gray-50'>WELCOME TO REACT APP!</div>;
-};
 const domNode = document.getElementById('root');
 const root = createRoot(domNode)
+import App from './components/App.jsx'
 root.render(
     <React.StrictMode>
-        <Index />
+        <App/>
     </React.StrictMode>
 )
