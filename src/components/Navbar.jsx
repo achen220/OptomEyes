@@ -4,24 +4,20 @@ export default function Navbar () {
   return (
     <nav>
     <ul className='inline-flex'>
-      <li className='m-3 duration-300 hover:font-bold'>
-       <CustomLink href="/login"> Login </CustomLink>
-      </li>
-      <li className='m-3 duration-300 hover:font-bold'>
-        <CustomLink href="/signUp"> SignUp </CustomLink>
-      </li>
+       <CustomLink to="/login"> Login </CustomLink>
+      <CustomLink to="/signup"> SignUp </CustomLink>
     </ul>
     </nav>
   )
 }
 
-function CustomLink({href, children, ...props}) {
+function CustomLink({to, children, ...props}) {
   const path = window.location.pathname;
   return (
-    <li className={path === href ? "active" : ""}>
-      <a href={href} {...props}>
+    <li className={ path === to ? "active m-3 duration-300 hover:font-bold" : "m-3 duration-300 hover:font-bold"}>
+      <Link to={to} {...props}>
         {children}
-      </a>
+      </Link>
     </li>
   )
 }
