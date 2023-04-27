@@ -7,19 +7,6 @@ import Dashboard from './Dashboard.jsx'
 import ImageSlider from './ImageSlider.jsx';
 import {createBrowserRouter, createRoutesFromElements, Route,Routes, Link, BrowserRouter} from 'react-router-dom';
 export default function App () {
-  // let component;
-  // console.log('lil:', window.location)
-  // switch (window.location.pathname) {
-  //   case '/':
-  //     component = <Home/>
-  //     break
-  //   case "/login":
-  //     component = <Login />
-  //     break
-  //   case "/signup":
-  //     component = <Signup />
-  //     break
-  // }
   return (
     <div>
       <Header/>
