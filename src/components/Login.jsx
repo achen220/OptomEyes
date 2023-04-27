@@ -20,9 +20,14 @@ export default function Login () {
       body: JSON.stringify(enteredInfo)
     }).then(res => res.json())
     .then(data => {
-      setAuthentication(true)
-      localStorage.setItem("authentication", true);
-      navigate("/dashboard");
+      // setAuthentication(true)
+      // localStorage.setItem("authentication", true);
+      if (data.id) {
+        navigate("/dashboard");
+      } else {
+        alert("incorrect login or password");
+      }
+
     })
     .catch((err) => console.log('err:',err))
   }
