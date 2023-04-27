@@ -4,7 +4,8 @@ export default function Navbar () {
   return (
     <nav>
     <ul className='inline-flex'>
-       <CustomLink to="/login"> Login </CustomLink>
+      <CustomLink to="/"> Home </CustomLink>
+      <CustomLink to="/login"> Login </CustomLink>
       <CustomLink to="/signup"> SignUp </CustomLink>
     </ul>
     </nav>

@@ -5,18 +5,24 @@ export default function Login () {
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
   async function postLogin () {
-    const enteredInfo = {enteredUsername, enteredPassword};
-    let loginAttempt = await fetch('http://localhost:8080/api/login',{
-      method: 'post',
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify(enteredInfo)
-    })
-    .then((res) => res.json())
-    .then((data) => console.log(data))
-    .catch((err) => console.log(err))
+    try {
+      const enteredInfo = {enteredUsername, enteredPassword};
+      let loginAttempt = await fetch('http://localhost:8080/api/login',{
+        method: 'post',
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(enteredInfo)
+      })
+      const data = await loginAttempt.json();
+      console.log(data);
+      // .then((res) => res.json())
+      // .then((data) => console.log(data))
+      // .catch((err) => console.log(err))
+    } catch (error) {
+      console.error(error)
+    }
     setEnteredUsername("");
     setEnteredPassword("");
   }

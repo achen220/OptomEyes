@@ -6,7 +6,6 @@ export default function Signup () {
   const [email, setEmail] = useState("");
   async function postSignup () {
     const account = {username, email, password}
-    console.log(account);
     let result = await fetch('http://localhost:8080/api/signUp',{
       method: 'post',
       headers: {
@@ -16,7 +15,7 @@ export default function Signup () {
       body: JSON.stringify(account)
     })
     .then((res) => res.json())
-    .then((data) => console.log(data))
+    .then((data) => console.log('data:', data))
     .catch((err) => console.log(err))
     setUsername("");
     setEmail("");

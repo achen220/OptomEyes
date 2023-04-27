@@ -19,10 +19,13 @@ const pgController = {
     })
   },
   login: (req,res,next) => {
-    const { username, password } = req.body;
-    const queryString = 'SELECT * FROM users WHERE username = $1 AND password = $2';
-    db.query(queryString,[username, password], (err, result) => {
+    console.log('body:', req.body)
+    const { enteredUsername, enteredPassword } = req.body;
+    console.log(req.body)
+    const queryString = `SELECT * FROM users WHERE username = '${enteredUsername}' AND password = '${enteredPassword}'`;
+    db.query(queryString,(err, result) => {
       if (err) {
+        console.log('error occurred')
         return next({
           log: 'Express error caught in pgController login',
           message: {err: 'error occurred in pgController.login'}
