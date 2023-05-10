@@ -7,7 +7,6 @@ const pgController = {
     const queryString = 'INSERT INTO users (username, email, password) Values ($1, $2, $3)'
     db.query(queryString, [username, email, password], (err, result) => {
       if (err) {
-        console.log(err)
         return next({
           log: 'Express error caught in pgController signUp',
           message: {err: 'error occurred in pgController.signUp'}
@@ -19,7 +18,6 @@ const pgController = {
     })
   },
   login: (req,res,next) => {
-    console.log('body:', req.body)
     const { enteredUsername, enteredPassword } = req.body;
     const queryString = `SELECT * FROM users WHERE username = '${enteredUsername}' AND password = '${enteredPassword}'`;
     db.query(queryString,(err, result) => {

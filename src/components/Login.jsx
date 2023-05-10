@@ -32,11 +32,11 @@ export default function Login () {
     .catch((err) => console.log('err:',err))
   }
   return (
-    <form className='p-10 flex flex-row justify-center items-center'
+    <form className='py-8 px-3 flex flex-row justify-even items-center'
     onSubmit={postLogin}>
-      <input className='px-5 py-3 mx-3 rounded' type='username' value={enteredUsername} onChange={(e)=>setEnteredUsername(e.target.value)} placeholder='username'/>
-      <input className='px-5 py-3 mx-3 rounded' type='password' value={enteredPassword} onChange={(e)=>setEnteredPassword(e.target.value)} placeholder='password'/>
-      <input className='px-5 py-3 mx-3 border border-black rounded text-center duration-300 hover:bg-red-50' type='submit' value="Login" placeholder='Login'/>
+      <input className='w-1/3 px-5 py-2 mx-3 rounded' type='username' value={enteredUsername} onChange={(e)=>setEnteredUsername(e.target.value)} placeholder='username'/>
+      <input className='w-1/3 px-5 py-2 mx-3 rounded' type='password' value={enteredPassword} onChange={(e)=>setEnteredPassword(e.target.value)} placeholder='password'/>
+      <input className='px-5 py-2 mx-3 border border-black rounded text-center duration-300 hover:bg-red-50' type='submit' value="Login" placeholder='Login'/>
     </form>
   )
 }

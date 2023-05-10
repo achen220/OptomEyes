@@ -3,7 +3,7 @@ const router = express.Router();
 const pgController = require('../controllers/pgController');
 
 router.post('/signUp', pgController.signUp ,(req,res) => {
-  res.status(200);
+  res.status(200).json(res.locals.newAccount);
 })
 router.post('/login', pgController.login , (req,res) => {
   res.status(200).json(res.locals.loginReq)

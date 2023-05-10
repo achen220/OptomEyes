@@ -5,7 +5,7 @@ export default function Navbar () {
   return (
     <nav>
     <ul className='inline-flex text-center'>
-      <Link to="/" className='m-auto'> Home </Link>
+      {/* <Link to="/" className='m-auto'> Home </Link> */}
       <Login />
       {/* <CustomLink to="/login"> Login </CustomLink>
       <CustomLink to="/signup"> SignUp </CustomLink> */}

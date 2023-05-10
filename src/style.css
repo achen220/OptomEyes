@@ -5,6 +5,8 @@
 body {
   background-color: #fbf7f0;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 header {
   background-color: #fbf7f0;

@@ -1,25 +1,35 @@
 import React, { useState } from 'react';
+import { redirect, useNavigate } from "react-router-dom";
+
 
 export default function Signup () {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   async function postSignup () {
     const account = {username, email, password}
-    let result = await fetch('http://localhost:8080/api/signUp',{
-      method: 'post',
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify(account)
-    })
-    .then((res) => res.json())
-    .then((data) => console.log('data:', data))
-    .catch((err) => console.log(err))
-    setUsername("");
-    setEmail("");
-    setPassword("");
+    try {
+      let result = await fetch('http://localhost:8080/api/signUp',{
+        method: 'post',
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(account)
+      })
+      let data = await result.json();
+      if (data) {
+        console.log('data recieved from server:', data)
+        setUsername("");
+        setEmail("");
+        setPassword("");
+        return navigate("/Dashboard");
+      }
+    } catch (err) {
+      console.log('error caught during signup, problem with response from server:', err)
+      throw err;
+    }
   }
   return (
     <form className='p-10 border-t border-b border-black flex flex-col justify-center items-center'>
