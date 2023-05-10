@@ -4,23 +4,21 @@ import Signup from './Signup.jsx';
 import Login from './Login.jsx';
 import Home from './Home.jsx';
 import Dashboard from './Dashboard.jsx'
-import ImageSlider from './ImageSlider.jsx';
 import VisualField from './VisualField.jsx'
 import {createBrowserRouter, createRoutesFromElements, Route,Routes, Link, BrowserRouter} from 'react-router-dom';
 export default function App () {
   return (
     <div>
       <Header/>
-      <section className='mt-20 left-0 right-0 pt-10 h-f ull
+      <section className='mt-20 left-0 right-0 pt-10 h-full
         flex flex-row justify-evenly'>
-        {/* <Routes>
+        <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/signup" element={<Signup />}/>
           <Route path="/dashboard" element={<Dashboard />}/>
           <Route path="/visualfield" element={<VisualField />}/>
-        </Routes> */}
-        <VisualField/>
+        </Routes>
       </section>
     </div>
 
