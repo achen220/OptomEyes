@@ -15,12 +15,6 @@ export default function VisualField () {
   const generateNum = () => {
     return Math.floor(Math.random() * 4) * 200;
   }
-  // let runTest = [
-  //   [0,0],[0,200],[0,400],[0,600],
-  //   [200,0],[200,200],[200,400],[200,600],
-  //   [400,0],[400,200],[400,400],[400,600],
-  //   [600,0],[600,200],[600,400],[600,600],
-  //   ]
 
   useEffect(() => {
     if (change !== null) {

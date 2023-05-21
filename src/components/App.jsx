@@ -10,7 +10,7 @@ export default function App () {
   return (
     <div>
       <Header/>
-      <section className='mt-20 left-0 right-0 pt-10 h-full
+      <section className='mt-20 left-0 right-0 h-full
         flex flex-row justify-evenly'>
         <Routes>
           <Route path="/" element={<Home />}/>

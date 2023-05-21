@@ -12,10 +12,16 @@ app.use(express.json())
 //routers
 const authRoutes = require('./route/auth');
 
-app.use(express.static(path.join(__dirname, '../dist')));
-//serves the html files to the client
+// app.use(express.static(path.join(__dirname, '../dist')));
+
+// app.get('/', (req,res) => {
+//   res.sendFile(__dirname, '../dist/index.html')
+// })
+
+app.use(express.static(path.join(__dirname, '../src')));
+
 app.get('/', (req,res) => {
-  res.sendFile(__dirname, '../dist/index.html')
+  res.sendFile(__dirname, '../src/index.html')
 })
 
 //redirect routers
