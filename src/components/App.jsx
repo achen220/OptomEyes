@@ -12,6 +12,7 @@ export default function App () {
       <Header/>
       <section className='mt-20 left-0 right-0 h-full
         flex flex-row justify-evenly'>
+          {/* <Login /> */}
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/login" element={<Login />}/>
