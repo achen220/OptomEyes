@@ -12,14 +12,14 @@ export default function App () {
       <Header/>
       <section className='mt-20 left-0 right-0 h-full
         flex flex-row justify-evenly'>
-          {/* <Login /> */}
-        <Routes>
+          <Signup />
+        {/* <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/signup" element={<Signup />}/>
           <Route path="/dashboard" element={<Dashboard />}/>
           <Route path="/visualfield" element={<VisualField />}/>
-        </Routes>
+        </Routes> */}
       </section>
     </div>
 
